@@ -1,0 +1,3 @@
+export const UPDATE_SYNONYMS = 'UPDATE_SYNONYMS';
+
+export const SYNONYMS_ACTIONS = new Set([ UPDATE_SYNONYMS, ]);

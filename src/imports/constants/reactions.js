@@ -1,0 +1,3 @@
+ const UPDATE_REACTIONS = 'UPDATE_REACTIONS';
+
+ export const REACTION_ACTIONS = new Set([ UPDATE_REACTIONS, ]);
