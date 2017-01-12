@@ -1,0 +1,9 @@
+{
+  "name": "reactionman",
+  "version": "0.0.0",
+  "description": "hangman game w giphy reactions",
+  "main": "index.js",
+  "repository": "git@github.com:tfpractice/reactionman.git",
+  "author": "theory friction practice <jackson.brebnor@gmail.com>",
+  "license": "MIT"
+}
