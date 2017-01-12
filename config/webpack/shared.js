@@ -14,6 +14,7 @@ export default (env = defEnvar) => ({
     alias: {
       imports: PATHS.imports,
       config: PATHS.config,
+      dist: PATHS.dist,
     },
   },
   output: {

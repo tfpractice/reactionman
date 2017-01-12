@@ -1,3 +1,4 @@
+
 import HtmlPlugin from 'html-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import webpack from 'webpack';
@@ -39,8 +40,8 @@ console.log(process.env.NODE_ENV);
 
 export const DEV_CONFIG = {
   entry:   {
-    app: [ PATHS.RHLPatch, PATHS.hotMiddleware, PATHS.app, ],
-    vendor: [ PATHS.RHLPatch, PATHS.hotMiddleware, ...vendor, ],
+    app: [ PATHS.hotMiddleware, PATHS.app, ],
+    vendor: [ PATHS.hotMiddleware, ],
   },
   output: {},
   plugins: [

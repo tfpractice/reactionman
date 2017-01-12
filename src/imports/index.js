@@ -1,15 +1,4 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Provider, } from 'react-redux';
-import { App, } from './components';
-import getStore from './store';
-import injectTapEventPlugin from 'react-tap-event-plugin';
-
-import './index.css';
-injectTapEventPlugin();
-
-ReactDOM.render(
-  <Provider store={getStore()}>
-    <App />
-  </Provider>, document.getElementById('root')
-);
+export { default as getRoutes, } from './routes';
+export { default as AppContainer, } from './container';
+export { default as getStore, } from './store';
+export { default as components, } from './components';// import ReactDOM from 'react-dom';

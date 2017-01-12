@@ -20,9 +20,9 @@ export const renderHTML = (markup, state) => `
         <script>
           window.__PRELOADED_STATE__ = ${JSON.stringify(state)}
         </script>
-           <script type="application/javascript" src=/manifest.js ></script>
-           <script type="application/javascript" src=/vendor.js ></script>
-           <script type="application/javascript" src=/app.js ></script>
+           <script type="application/javascript" src=/manifest.bundle.js ></script>
+           <script type="application/javascript" src=/vendor.bundle.js ></script>
+           <script type="application/javascript" src=/app.bundle.js ></script>
         </body>
     </html>
     `;
@@ -41,18 +41,16 @@ export const requestHandler = (req, res) => {
     } else if (redirectLocation) {
       res.redirect(302, redirectLocation.pathname + redirectLocation.search);
     } else if (props) {
-      fetchComponentData(store.dispatch, props.components, props.params)
-        .then(() => {
-          const markup = renderToString(
-            <Provider store={store}>
-              <RouterContext {...props} />
-            </Provider>
+      // fetchComponentData(store.dispatch, props.components, props.params)
+      //   .then(() => {
+      const markup = renderToString(
+        <Provider store={store}>
+          <RouterContext {...props} />
+        </Provider>
           );
 
-          console.log((store.getState()));
-          return res.send(renderHTML(markup, store.getState()));
-        })
-        .catch(err => res.end(err.message));
+      console.log((store.getState()));
+      return res.send(renderHTML(markup, store.getState()));
     } else {
       res.status(404).send('Not found');
     }

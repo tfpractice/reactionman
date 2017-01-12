@@ -15,22 +15,23 @@
 });
 
   const App = ({ word, guesses, remaining, getRandomWord, getTrending, next, gifs, }) => (
-  <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme, { userAgent: false, })}>
-    <div className="App">
-      <AppBar
-        title={<FlatButton label={'Get Word'} secondary onClick={getRandomWord} />}
-        iconClassNameRight="muidocs-icon-navigation-expand-more"
-      />
-      <div className="container">
-        <h1> GUESSES REMAINING {remaining} </h1>
-        <FlatButton label={'Get Trending Gifs'} secondary onClick={() => getTrending(next)} />
-        <Word word={word}/>
-        <h1>{[ ...guesses, ].map((c, i) => <Letter key={i} chr={c}/>)}</h1>
-        {gifs.map((g, i) => <img key={i} src={g.url}/>)}
-      </div>
+    <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme, { userAgent: false, })}>
+      <div className="App">
+        <AppBar
+          title={<FlatButton label={'Get Word'} secondary onClick={getRandomWord} />}
+          iconClassNameRight="muidocs-icon-navigation-expand-more"
+        />
+        <div className="container">
+          <h1> GUESSES REMAINING {remaining} </h1>
+          <FlatButton label={'Get Trending Gifs'} secondary onClick={() => getTrending(next)} />
+          <FlatButton label={'Get Trending Gifs'} secondary onClick={reactionActs.getReactions} />
+          <Word word={word} />
+          <h1>{[ ...guesses, ].map((c, i) => <Letter key={i} chr={c} />)}</h1>
+          {gifs.map((g, i) => <img key={i} src={g.url} />)}
+        </div>
 
-    </div>
-</MuiThemeProvider>
+      </div>
+    </MuiThemeProvider>
 
 );
 

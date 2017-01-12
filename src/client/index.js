@@ -1,27 +1,15 @@
 import React from 'react';
 import { render, } from 'react-dom';
 import { Provider, } from 'react-redux';
-import { AppContainer as HotContainer, } from 'react-hot-loader';
+import { App, } from 'imports/components';
+import { AppContainer, } from 'imports';
 import { browserHistory, Router, } from 'react-router';
-import { AppContainer as AppComponent, getRoutes, getStore, } from 'imports';
+import getStore from 'imports/store';
+import injectTapEventPlugin from 'react-tap-event-plugin';
 
-const store = getStore(window.__PRELOADED_STATE__);
+injectTapEventPlugin();
 
-const applyToDOM = (rStore, history) =>
-  render(
-    <HotContainer>
-      <AppComponent store={rStore} history={history} />
-    </HotContainer>, document.getElementById('root'));
-
-applyToDOM(store, browserHistory);
-
-if (module.hot) {
-  module.hot.accept('imports', () => {
-    const NextApp = require('imports').AppContainer;
-
-    render(
-      <HotContainer>
-        <NextApp store={store} history={browserHistory} />
-      </HotContainer>, document.getElementById('root'));
-  });
-}
+render(
+  <AppContainer store={getStore()} history={browserHistory} />
+  , document.getElementById('root')
+);
